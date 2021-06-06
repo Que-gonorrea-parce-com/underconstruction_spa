@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:js' as js;
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mailto/mailto.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(MyApp());
@@ -30,12 +32,20 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  void _getInTouch() {
+  _getInTouch() async  {
+
+    final mailtoLink = Mailto(
+      to: ['yprojects.med@gmail.com'],
+      subject: 'quegonorreaparce.com',
+      body: 'Me gustaria estar informado de actualizaciones '
+    );
+    await launch('$mailtoLink');
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
