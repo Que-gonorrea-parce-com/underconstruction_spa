@@ -57,13 +57,24 @@ class _MyHomePageState extends State<MyHomePage> {
                   fontSize: 40,
                   fontWeight: FontWeight.w800
                 )
-
               ),
               padding: EdgeInsets.only(left: 30, bottom: 30, right: 30),
-
             ),
             _HeaderImage(),
-            _Description()
+            _Description(),
+            Positioned(
+                child: Container(
+                  child: Text(
+                      "yprojects.med@gmail.com \n Juan Gonzalo Quiroz Cadavid \n (+57) 301 347 59 95",
+                      style: GoogleFonts.josefinSans(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w800
+                      ),
+                    textAlign: TextAlign.center,
+
+                  ),
+                )
+            )
           ],
         ),
       ),
