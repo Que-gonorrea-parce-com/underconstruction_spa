@@ -1,0 +1,115 @@
+import 'package:flutter/material.dart';
+import 'dart:js' as js;
+import 'package:google_fonts/google_fonts.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: MyHomePage(title: 'Que gonorrea parce!'),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  MyHomePage({Key? key, required this.title}) : super(key: key);
+
+  final String title;
+
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+
+  void _getInTouch() {
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Container(
+              child: Text(
+                  "Que gonorrea parce!",
+                style: GoogleFonts.josefinSans(
+                  fontSize: 40,
+                  fontWeight: FontWeight.w800
+                )
+
+              ),
+              padding: EdgeInsets.only(left: 30, bottom: 30, right: 30),
+
+            ),
+            _HeaderImage(),
+            _Description()
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _getInTouch,
+        tooltip: 'Quiero estar informado',
+        child: Icon(Icons.email_outlined),
+      ),
+    );
+  }
+}
+
+
+class _Description extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(30),
+      child: Text(
+        'El mercado está lleno de muchos lugares, productos, experiencias que lo máximo que merecen es un 0! Hagamos una comunidad donde podamos quejarnos de todo lo que no nos guste para poder desquitarnos y también informar a los demás para que entiendan que les espera.',
+        style: GoogleFonts.josefinSans(
+            fontSize: 20,
+            fontWeight: FontWeight.normal
+        ),
+        textAlign: TextAlign.justify,
+      ),
+      width: 1000,
+    );
+  }
+}
+
+class _HeaderImage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        children: [
+          Container(
+              child: Image.asset('assets/img/definition.png')
+          ),
+          InkWell(
+            child: Text(
+              "urbandictionary.com",
+              style: GoogleFonts.josefinSans(
+                  fontSize: 20,
+                  color: Colors.blueAccent,
+                  fontWeight: FontWeight.normal
+              ),
+            ),
+            onTap: () {
+              js.context.callMethod('open', ['https://www.urbandictionary.com/define.php?term=gonorrea']);
+            },
+          )
+        ],
+      ),
+    );
+  }
+}
+
