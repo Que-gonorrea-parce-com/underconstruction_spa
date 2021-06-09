@@ -65,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Positioned(
                 child: Container(
                   child: Text(
-                      "yprojects.med@gmail.com \n Juan Gonzalo Quiroz Cadavid \n (+57) 301 347 59 95",
+                      "yprojects.med@gmail.com \n Nicolas Gonzalez Vallejo & Juan Gonzalo Quiroz Cadavid \n (+57) 301 347 59 95",
                       style: GoogleFonts.josefinSans(
                         fontSize: 20,
                         fontWeight: FontWeight.w800
